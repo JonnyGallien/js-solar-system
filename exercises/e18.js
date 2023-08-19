@@ -7,7 +7,21 @@
 export function getGreatestDiscoveryYear(data) {
   // Your code goes here...
   // feel free to import your `maxBy` or `minBy` methods from previous lessons
+  let mostAsteroids = [];
+  function numOfAsteroids(year) {
+    let asteroidYearArr = data.asteroids.filter((asteroid) => asteroid.discoveryYear === year);
+    return asteroidYearArr.length;
+  }
+  data.asteroids.filter(function(asteroid) {
+    if (mostAsteroids.length === 0) {
+      mostAsteroids[0] = asteroid;
+    } else if (numOfAsteroids(asteroid.discoveryYear) > numOfAsteroids(mostAsteroids[0].discoveryYear)) {
+      mostAsteroids[0] = asteroid;
+    }
+  })
+  return mostAsteroids[0].discoveryYear;
 }
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-18"

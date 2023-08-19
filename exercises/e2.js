@@ -6,6 +6,9 @@ import { data } from "../data/data";
 
 export function getAsteroidNames(data) {
   // Your code goes here...
+  let asteroidsArr = [];
+  data.asteroids.map((x) => asteroidsArr.push(x.name));
+  return asteroidsArr;
 }
 
 
