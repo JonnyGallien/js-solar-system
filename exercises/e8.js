@@ -5,10 +5,9 @@ import { data } from "../data/data";
 // Return example: 'Planet Name'
 
 export function findPlanetNameByMoon(data, moonName) {
-  // Your code goes here...
-  let moonPlanets = data.planets.filter((planet) => planet.moonsCount > 0)
-  let thePlanet = moonPlanets.find((planet) => planet.moons.find((moons) => moons.includes(moonName)) === moonName);
-  return thePlanet.name;
+  return data.planets
+  .filter((planet) => planet.moonsCount > 0)
+  .find((planet) => planet.moons.find((moons) => moons.includes(moonName)) === moonName).name
 }
 
 
